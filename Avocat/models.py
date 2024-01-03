@@ -3,56 +3,58 @@ from django.db import models
 
 # Create your models here.
 
+STATUS_CHOICES = [
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+        ('pending', 'Pending'),
+    ]
+
+
 class Wilaya(models.Model):
     name = models.CharField(max_length=50)
 
+
+class Speciality(models.Model):
+    name = models.CharField(max_length=100)
 
 class Avocat(models.Model):
     nom = models.CharField(max_length=100)
     prenom=models.CharField(max_length=100)
     experience = models.CharField(max_length=500)
     nmr_tlfn=models.CharField(max_length=10)
-    adress = models.CharField(max_length=100)
-    competence = models.IntegerField()
+    adresse = models.CharField(max_length=100)
+    adresse_link = models.CharField(max_length=100)
+    competence = models.CharField(max_length=100)
     langue = models.CharField(max_length=50)
     nmrInscitBureau=models.CharField(max_length=50)
     email=models.CharField(max_length=50)
     password=models.CharField(max_length=50)
-
-
+    status=models.CharField(max_length=50, choices=STATUS_CHOICES)
+    linckedIn=models.CharField(max_length=100)
+    profilePh=models.CharField(max_length=500)
+    cartePro=models.CharField(max_length=500)
+    carteIndent=models.CharField(max_length=500)
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
-
-
-
-class Client(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-
-
-class Speciality(models.Model):
-    name = models.CharField(max_length=100)
-
-
-class AvocatSpecRelation(models.Model):
-    avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
-    speciality = models.ForeignKey(Speciality, on_delete=models.CASCADE)
-
-
-class Article(models.Model):
-    title = models.CharField(max_length=50)
-    body = models.CharField(max_length=500)
-    avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
+    specialite = models.ForeignKey(Speciality,on_delete=models.SET_NULL,null=True)
 
 
 class Day(models.Model):
-    number = models.IntegerField(max_length=7)
-    stat = models.CharField(max_length=50)
-    client = models.ForeignKey(Client,on_delete=models.SET_NULL,null=True)
-    avocat = models.ForeignKey(Avocat,on_delete=models.SET_NULL,null=True)
+    number = models.IntegerField()
+    session1=models.BooleanField()
+    session2=models.BooleanField()
+    session3=models.BooleanField()
+    session4=models.BooleanField()
+    session5=models.BooleanField()
+    session6=models.BooleanField()
+    session7=models.BooleanField()
+    avocat = models.ForeignKey(Avocat,on_delete=models.CASCADE)
 
 
 class RateAndComments(models.Model):
-    rate = models.IntegerField(max_length=5)
-    commentTitle = models.CharField(max_length=50)
+    rate = models.IntegerField()
     commentBody = models.CharField(max_length=500)
     avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
+
+class Admin(models.Model):
+    username=models.CharField(max_length=10)
+    password=models.CharField(max_length=10)
