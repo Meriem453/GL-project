@@ -8,12 +8,20 @@ class Wilaya(models.Model):
 
 
 class Avocat(models.Model):
-    name = models.CharField(max_length=100)
+    nom = models.CharField(max_length=100)
+    prenom=models.CharField(max_length=100)
     experience = models.CharField(max_length=500)
+    nmr_tlfn=models.CharField(max_length=10)
     adress = models.CharField(max_length=100)
     competence = models.IntegerField()
     langue = models.CharField(max_length=50)
+    nmrInscitBureau=models.CharField(max_length=50)
+    email=models.CharField(max_length=50)
+    password=models.CharField(max_length=50)
+
+
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
+
 
 
 class Client(models.Model):
