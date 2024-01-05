@@ -27,13 +27,12 @@ class Avocat(models.Model):
     competence = models.CharField(max_length=100)
     langue = models.CharField(max_length=50)
     nmrInscitBureau=models.CharField(max_length=50)
-    email=models.CharField(max_length=50)
-    password=models.CharField(max_length=50)
-    status=models.CharField(max_length=50, choices=STATUS_CHOICES)
+    email=models.CharField(max_length=50,unique=True)
+    status=models.CharField(max_length=50, choices=STATUS_CHOICES,default='pending')
     linckedIn=models.CharField(max_length=100)
-    profilePh=models.CharField(max_length=500)
-    cartePro=models.CharField(max_length=500)
-    carteIndent=models.CharField(max_length=500)
+    profilePh=models.ImageField(upload_to='./images/profile')
+    cartePro=models.ImageField(upload_to='./images/cartePro')
+    carteIndent=models.ImageField(upload_to='./images/carteIndent')
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
     specialite = models.ForeignKey(Speciality,on_delete=models.SET_NULL,null=True)
 
@@ -53,6 +52,13 @@ class Day(models.Model):
 class RateAndComments(models.Model):
     rate = models.IntegerField()
     commentBody = models.CharField(max_length=500)
+    avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
+
+class RDV(models.Model):
+    nom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    situation = models.CharField(max_length=50)
     avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
 
 class Admin(models.Model):
