@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID=2
+
 CORS_ALLOWED_ORIGINS=[
      'http://localhost:3000',
      'http://127.0.0.1:3000',
@@ -47,9 +49,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
 ]
+
+SOCIALACCOUNTS_PROVIDERS={
+"google":{
+"SCOPE":[
+"profile","email"
+],"AUTH_PARAMS":{"access_type":"online"}
+}}
 
 MIDDLEWARE = [
     #'coresheaders.middleware.CorsMiddleware',
@@ -60,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -134,3 +148,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS=(
+"django.contrib.auth.backends.ModelBackend",
+"allauth.accounts.auth_backends.AuthenticationBackend"
+)
+
+LOGIN_REDIRECT_URL="/"
+LOGOUT_REDIRECT_URL="/"
