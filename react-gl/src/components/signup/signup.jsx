@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import ProfilePic from './profilepic';
 import Carteprof from './carteprof';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,10 +48,34 @@ const Signup = () => {
   const handlePrevious = () => {
     setStep((prevStep) => prevStep - 1);
   };
-
-  const handleSave = () => {
-    console.log(userData);
+  const validateData = () => {
+    const requiredFields = [
+      'Nom',
+      'Prenom',
+      'Address',
+      'NTelephone',
+      'NBarreau',
+      'Spécialité',
+      'Email',
+      'password',
+      'confirmPassword',
+      'picture',
+      'carteProfessionnelle',
+      'carteNationale',
+    ];
+  
+    return requiredFields.every((field) => userData[field]);
   };
+  const navigate = useNavigate();
+
+ const handleSave = () => {
+  if (validateData()) {
+    console.log(userData);
+    navigate('/waiting');
+  } else {
+    alert('Veuillez remplir tous les champs obligatoires.');
+  }
+};
 
   return (
     <div className='signup'>
@@ -70,6 +94,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder=''
+                  required
                 />
                 <label>Nom</label>
               </div>
@@ -81,6 +106,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder=""
+                  required
                 />
                 <label>Prénom</label>
               </div>
@@ -93,6 +119,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder=""
+                  required
                 />
                 <label>Numéro de Téléphone</label>
               </div>
@@ -104,6 +131,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder=""
+                  required
                 />
                 <label>Numéro de Barreau</label>
               </div>
@@ -116,6 +144,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="text"
                   placeholder=""
+                  required
                 />
                 <label>address</label>
               </div>
@@ -167,6 +196,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="email"
                   placeholder=""
+                  required
                 />
                 <label>Email</label>
               </div>
@@ -178,6 +208,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="password"
                   placeholder=""
+                  required
                 />
                 <label>Set Password</label>
               </div>
@@ -189,6 +220,7 @@ const Signup = () => {
                   onChange={handleChange}
                   type="password"
                   placeholder=""
+                  required
                 />
                 <label>Confirm Password</label>
                 {passwordError && <p style={{ color: 'red', width: '250px' }}>Passwords do not match</p>}
@@ -223,7 +255,7 @@ const Signup = () => {
           </div>
           <div className="prev">
             <FontAwesomeIcon onClick={handlePrevious} icon={faCircleChevronLeft} size="2xl" style={{ cursor: "pointer", color: "#B69B7D",width:'50px',height:'50px' }} />
-            <Link to="/waiting"><button className='buttonsub' onClick={handleSave}>Enregistrer</button></Link>
+            <button className='buttonsub' onClick={handleSave}>Enregistrer</button>
           </div>
           
         </div>

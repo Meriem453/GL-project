@@ -14,6 +14,7 @@ const Planification = () => {
 
         const isAvailable = newSchedule[dayIndex][periodIndex];
         console.log(`Day: ${days[dayIndex]}, Period: ${periods[periodIndex]}, Available: ${isAvailable}`);
+        console.log(schedule);
     };
 
     return(

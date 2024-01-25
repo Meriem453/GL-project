@@ -1,8 +1,6 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import './profile.css'; 
 import Sidebar from './sidebar';
-import axios from 'axios';
-
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -16,26 +14,12 @@ const Profile = () => {
     experience:'experience experience experience experience experience experience experience',
     competences:'competences competences competences competences competences competences competencescompetences',
     profilePicture: 'images/profilepic.jpg',
+    link:'',
   };
   const [userData, setUserData] = useState(defaultUserData);
   const [formValues, setFormValues] = useState(defaultUserData);
   const [selectedSpecialite, setSelectedSpecialite] = useState('');
   const [selectedProfilePicture, setSelectedProfilePicture] = useState(null);
-      useEffect(() => {
-          console.log("fetching data.....")
-          const fetchData = async () => {
-              try {
-                  const response = await axios.get('http://127.0.0.1:8000/api/avocat/profile');
-                  setUserData(response.data);
-                  console.log('response is :: ',response)
-          
-              } catch (error) {
-                  console.error('Error fetching data:', error);
-              }
-          };
-          fetchData(); 
-          }, []);
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -164,6 +148,18 @@ const Profile = () => {
                         />
                         <label>Compétences</label>
                     </div>
+                    <div className="input-group">
+                        <input
+                        className="link"
+                        type="text"
+                        name="link"
+                        value={formValues.link}
+                        onChange={handleChange}
+                        placeholder=''
+                        />
+                        <label>Localisation</label>
+                    </div>
+                    
                     <select
                       value={selectedSpecialite}
                       onChange={handleSpecialiteChange}
