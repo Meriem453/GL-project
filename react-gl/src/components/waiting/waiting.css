@@ -1,0 +1,47 @@
+
+.waiting{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.waiting .card{
+    background-color: #253141;
+    box-shadow: 0 0 20px 10px rgba(182, 155, 125, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width:800px;
+    height: 500px;
+    border-radius: 50px;
+    padding: 20px;
+    overflow:auto;
+}
+.waiting .icon{
+    margin-top: 25px;
+}
+.waiting h1{
+    color: #B69B7D;
+    font-size: 40px;
+    font-weight: 500;
+}
+.waiting p{
+    color: #FFF;
+    font-size: 20px;
+    width: 450px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .waiting .icon{
+        width: 120px;
+    }
+    .waiting h1{
+        font-size: 30px;
+        text-align: center;
+    }
+    .waiting p{
+        width: 300px;
+        font-size: 18px;
+    }
+}

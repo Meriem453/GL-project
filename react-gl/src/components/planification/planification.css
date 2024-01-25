@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+.planification{
+    display: flex;
+    height: 100vh;
+}
+.lawyer-schedule-container{
+  display: flex;
+  flex-direction: column;
+  width: 79%;
+  margin-left: 18%;
+  align-items: center;
+}
+  
+  .lawyer-schedule-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #253141;
+  }
+  
+  .lawyer-schedule-table th,
+  .lawyer-schedule-table td {
+    border: 1px solid #B69B7D;
+    padding: 8px;
+    color: #FFF;
+    text-align: center;
+    
+  }
+  
+  .lawyer-schedule-table th,.lawyer-schedule-table td:first-child {
+    border: none;
+  }
+  
+  .available-cell {
+    cursor: pointer;
+    background-color: #B69B7D;
+  }
+  .cell{
+    cursor: pointer;
+  }
+  .planification h1{
+    text-align: center;
+    margin-bottom: 50px;
+    color: #B69B7D;
+    font-size: 40px;
+  }
+  @media (max-width: 768px) {
+    .lawyer-schedule-container{
+      width: 90%;
+      margin-left: 0%;
+    }
+    .planification h1{
+      font-size: 30px;
+    }
+    .lawyer-schedule-table th,.lawyer-schedule-table td:first-child {
+      font-size: 10px;
+    }
+    .lawyer-schedule-table {
+      margin-right: 50px;
+    }
+    .available-cell {
+      font-size: 7px;
+    }
+  }

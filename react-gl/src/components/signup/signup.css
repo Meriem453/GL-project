@@ -1,0 +1,241 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+  }
+.signup{
+    background-image: url(../../../public/images/picture\ \(1\).jpg);
+    background-size:cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.signup .card{
+    background: conic-gradient(from 177deg at 100% 44.03%, #253141 0deg, rgba(43, 63, 89, 0.20) 200.62500715255737deg, rgba(36, 57, 84, 0.20) 350.6249928474426deg);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 80%;
+    max-width:800px;
+    height: 500px;
+    border-radius: 50px;
+    padding: 20px;
+    overflow:auto;
+}
+.signup .logotitle{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+.signup .title{
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    margin-top: 10px;
+}
+.signup .logo{
+    position: absolute;
+    left: 40px;
+    width: 80px;
+}
+.signup .container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    align-items: center;
+    margin-top: 50px;
+    
+  }
+  .signup .row {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .signup .input-group {
+    position: relative;
+    width: 45%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.signup .input-group input {
+    background: none;
+    padding: 10px;
+    border-radius: 18px;
+    border: 2px solid #B69B7D;
+    width: 92%;
+    height: 25px;
+  }
+  .signup .input-group label {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    color: #c0b9b9;
+    pointer-events: none;
+    transition: 0.5s ease all;
+    
+  }
+  
+  .signup input:focus + label,
+  .signup input:not(:placeholder-shown) + label {
+    top: -28px;
+    left:10px;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
+  .signup select{
+    width: 100%;
+    background-color: transparent;
+    border: solid 2px #B69B7D;
+    border-radius: 18px;
+    height: 50px;
+    padding-left: 10px;
+    color: #c0b9b9;
+  }
+  .signup .cntr{
+    display: flex;
+    width: 90%;
+    height: 400px;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 5%;
+    
+  }
+  .signup .profilepic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    width: 30%;
+    margin-left:5% ;
+  }
+  .signup .inputs{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .signup .inputs .input-group{
+    width: 70%;
+  }
+  .signup .nextprev{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .signup .pictures{
+    display: flex;
+    width: 90%;
+    height: 250px;
+    padding-bottom: 20px;
+    justify-content: space-around;
+  }
+  .signup .pictures .carte{
+    background-color: #B69B7DCC;
+    color: #FFF;
+    text-align: center;
+    padding-top: 10px;
+    height: 40px;
+    font-size: 15px;
+  }
+  .signup .text{
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+    width: 40%;
+    margin-top: 30px;
+  }
+  .signup .prev{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .signup .buttonsub{
+    background-color: #B69B7D;
+    border-radius: 18px;
+    border: none;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    color: #FFF;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .signup .buttonsub:hover {
+    box-shadow: 0 0 40px rgba(182, 155, 125, 0.8); 
+  }
+  @media (max-width: 768px) {
+    .signup .logotitle{
+        margin-top: 150px;
+        display: block;
+        height: 500px;
+        
+    }
+    .signup .title{
+        font-size: 25px;
+        text-align: center;
+    }
+    .signup .logo{
+        width: 50px;
+        top: 3%;
+        left: 40%;
+    }
+    .signup .row {
+      display: block;
+      margin-top: -10px;
+    }
+  
+    .signup .input-group {
+      width: 100%;
+    }
+    .signup .container{
+        margin-top: -10px;
+        height: 100vh;
+    }
+    .signup .cntr{
+        flex-direction: column;
+        height: 100vh;
+        margin-bottom: -150px;
+        margin-top: 0px;
+    }
+    .signup .inputs{
+        display: block;
+    }
+    .signup .inputs .input-group{
+        width: 100%;
+    }
+    .signup  .input-group label{
+        font-size: 15px;
+    }
+    .signup .nextprev{
+        position: absolute;
+        bottom: -300px;
+    }
+    .signup .pictures{
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    .signup .pictures .pic{
+        width:205px ;
+        margin-left: 25px;
+    }
+    .signup .prev{
+        position: absolute;
+        bottom: -300px;
+    }
+}

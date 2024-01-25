@@ -1,0 +1,47 @@
+.rendezvous{
+    display: flex;
+    height: 100%;
+
+}
+.rendezvous .container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 15%;
+    align-items: center;
+    
+}
+.rendezvous .messages{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    width: 900px;
+    margin-left: 12%;
+    min-height: 527px;
+}
+.rendezvous h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #B69B7D;
+    font-size: 40px;
+    margin-left: 12%;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .rendezvous .messages{
+        display: block;
+        max-width: 250px;
+        margin-left: 0;
+        min-height: 100vh;
+    }
+    .rendezvous h1{
+        font-size: 30px;
+        margin-left: 0;
+    }
+    .rendezvous .container{
+        width: 80%;
+        margin-left: 0%;
+    }
+    
+}

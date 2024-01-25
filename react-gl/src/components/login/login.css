@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.login{
+    background-image: url(../../../public/images/picture\ \(1\).jpg);
+    background-size:cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.login .card{
+    background: conic-gradient(from 177deg at 100% 44.03%, #253141 0deg, rgba(43, 63, 89, 0.20) 200.62500715255737deg, rgba(36, 57, 84, 0.20) 350.6249928474426deg);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    width: 80%;
+    max-width:800px;
+    height: 500px;
+    border-radius: 50px;
+    padding: 20px;
+    overflow:auto;
+}
+.login .logo{
+    margin-top: -45%;
+    margin-left: 5%;
+}
+.login .title{
+    color: #FFFFFF;
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 70px;
+    letter-spacing: 0em;
+    margin-right: 40px;
+}
+.login .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+}
+.login .input-group {
+    position: relative;
+    margin-top: 30px;
+}
+
+.login input {
+    background: none;
+    padding: 10px;
+    border-radius: 18px;
+    border: 2px solid #B69B7D;
+    width: 100%;
+    max-width: 400px;
+    height: 30px;
+  }
+  .login label {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.5s ease all;
+  }
+  
+  .login input:focus + label,
+  .login input:not(:placeholder-shown) + label {
+    top: -28px;
+    left:10px;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+  .login span{
+    margin: 10px 0px ;
+    margin-left: 60%;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 100;
+    font-style: italic;
+    cursor: pointer;
+    text-decoration:underline;
+  }
+  .login button{
+    background-color: #B69B7D;
+    width: 425px;
+    height: 50px;
+    border-radius: 18px;
+    border: none;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 400;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .login .google{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border: 1px solid #B69B7D;
+    background: rgba(182, 155, 125, 0.20);
+  }
+  .login .google img{
+    margin-right: 5%;
+  }
+  .login button:hover{
+    background-color: hsl(30, 38%, 45%); 
+  }
+  .login .signup-link{
+    font-weight: 400px;
+    font-size: 18px;
+    color: #FFFFFF;
+  }
+  .login .link{
+    color: #FFFFFF;
+  }
+  @media (max-width: 768px){
+   
+     .login .title {
+      margin-left: 40px;
+      text-align: center;
+      font-size: 26px;
+  }
+
+  .login .logo {
+    margin-top: 10px;
+    margin-left: 40%;
+    width: 70px;
+}
+  span{
+    width: 100%;
+  }
+     .login .card {
+      display: block;
+      width: 80%;
+  }
+.login .input-group{
+  width: 100%;
+  
+}
+  .login button {
+    width: 115%;
+  }
+    
+}
