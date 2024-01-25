@@ -12,10 +12,13 @@ STATUS_CHOICES = [
 
 class Wilaya(models.Model):
     name = models.CharField(max_length=50)
-
+    def __str__(self):
+        return self.name
 
 class Speciality(models.Model):
     name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 class Avocat(models.Model):
     nom = models.CharField(max_length=100)
@@ -35,7 +38,8 @@ class Avocat(models.Model):
     carteIndent=models.ImageField(upload_to='./images/carteIndent')
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
     specialite = models.ForeignKey(Speciality,on_delete=models.SET_NULL,null=True)
-
+    def __str__(self):
+        return self.nom
 
 class Day(models.Model):
     number = models.IntegerField()
@@ -64,3 +68,5 @@ class RDV(models.Model):
 class Admin(models.Model):
     username=models.CharField(max_length=10)
     password=models.CharField(max_length=10)
+    def __str__(self):
+        return self.nom
