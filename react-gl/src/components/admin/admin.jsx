@@ -25,7 +25,7 @@ const Accepte = () => {
       <div className="accept">
         <ProfilePic/>
          <div className="username">safia bennacer</div>
-         <div className="contact">s_bennacer@estin.dz</div>
+         <div className="contactt">s_bennacer@estin.dz</div>
          <div className="date">09/12/2023</div>
          <ImageModal
             iconSrc="./images/preview.png"
@@ -49,7 +49,7 @@ const Accepte = () => {
       <div className="attente">
          <ProfilePic/>
          <div className="username">safia bennacer</div>
-         <div className="contact">s_bennacer@estin.dz</div>
+         <div className="contactt">s_bennacer@estin.dz</div>
          <div className="date">09/12/2023</div>
          <ImageModal
             iconSrc="./images/preview.png"

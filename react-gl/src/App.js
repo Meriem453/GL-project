@@ -3,6 +3,7 @@ import Waiting from "./components/waiting/waiting";
 import Profile from "./components/compteavocat/profile";
 import Planification from "./components/planification/planification";
 import Rendezvous from "./components/rendezvous/rendezvous";
+import Admin from "./components/admin/admin";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -67,6 +68,11 @@ function App() {
       path: '/profilavocat',
       element: <Proifil/>,
      },
+     {
+      path: '/secure-admin-path-here',
+      element: <Admin/>,
+     },
+
   ]);
 
   return (
