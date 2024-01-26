@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
+import axios from 'axios';
 import { useNavigate  } from "react-router-dom";
 import ProfilePic from './profilepic';
 import Carteprof from './carteprof';
@@ -17,15 +18,28 @@ const Signup = () => {
     Email: '',
     password: '',
     confirmPassword: '',
-    picture: '',
-    carteProfessionnelle: '',
-    carteNationale: '',
   });
+  
+  const [picture, setPicture] = useState(null);
+  const [carteProfessionnelle, setCarteProfessionnelle] = useState(null);
+  const [carteNationale, setCarteNationale] = useState(null);
 
   const [passwordError, setPasswordError] = useState(false);
-
+  const [message, setMessage] = useState();
   const handleImageChange = (selectedImage, file, pictureType) => {
-    setUserData((prevData) => ({ ...prevData, [pictureType]: selectedImage }));
+    switch (pictureType) {
+      case 'picture':
+        setPicture(file);
+        break;
+      case 'carteProfessionnelle':
+        setCarteProfessionnelle(file);
+        break;
+      case 'carteNationale':
+        setCarteNationale(file);
+        break;
+      default:
+        break;
+    }
   };
   
 
@@ -59,23 +73,72 @@ const Signup = () => {
       'Email',
       'password',
       'confirmPassword',
-      'picture',
-      'carteProfessionnelle',
-      'carteNationale',
+      
     ];
-  
-    return requiredFields.every((field) => userData[field]);
+    const requiredPictures = [picture, carteProfessionnelle, carteNationale].every((pic) => pic !== null);
+
+    return requiredFields.every((field) => userData[field]) && requiredPictures;
   };
   const navigate = useNavigate();
 
- const handleSave = () => {
-  if (validateData()) {
-    console.log(userData);
-    navigate('/waiting');
-  } else {
-    alert('Veuillez remplir tous les champs obligatoires.');
-  }
-};
+  const handleSave = async () => {
+    if (validateData()) {
+      console.log(validateData)
+      const formData = new FormData();
+        formData.append('nom', userData.Nom);
+        formData.append('prenom', userData.Prenom);
+        formData.append('nmr_tlfn', userData.NTelephone);
+        formData.append('nmrInscitBureau', userData.NBarreau);
+        formData.append('adresse', userData.Address);
+        formData.append('specialite_id', userData.Spécialité);
+        formData.append('email', userData.Email);
+        console.log("formdata",formData,"userdata " ,userData,"pictures",picture,carteNationale,carteProfessionnelle)
+        formData.append('password', userData.password);
+        if(picture !== null){
+          formData.append('picture',picture)
+        }
+        if(carteNationale !== null){
+          formData.append('carteNationale',carteNationale)
+        }
+        if(carteProfessionnelle !== null){
+          formData.append('carteProfessionnelle',carteProfessionnelle)
+        }
+      
+      try {
+        console.log('Request Payload:', JSON.stringify(formData));
+        console.log('FormData:', formData);
+
+        const response = await axios.post('http://localhost:8000/api/avocat/signUp', formData,
+        //  {
+        // headers: {
+        //     'Content-Type': 'multipart/form-data',
+        // },}
+).then(response => {
+          console.log(response)
+          if (response.redirect) {
+            // Use client-side navigation to redirect
+              window.location.href = response.data.redirect;
+          }
+          if(response.data.error){
+            setMessage(response.data.error);
+            alert(message);
+          }
+      }).catch(error => {
+          console.error('Error of sending req:', error);
+          });;
+  
+        const createdUser = response.data.user;
+        console.log('User created:', createdUser);
+  
+        navigate('/waiting');
+      } catch (error) {
+        console.error('Error creating user:why!!!!', error);
+      }
+    } else {
+      alert('Veuillez remplir tous les champs obligatoires.');
+    }
+  };
+  
 
   return (
     <div className='signup'>
@@ -185,7 +248,9 @@ const Signup = () => {
           </div>
           <div className="cntr">
             <div className="profilepic">
-              <ProfilePic onChange={(selectedImage, file) => handleImageChange(selectedImage, file, 'picture')} />
+              <ProfilePic onChange={(selectedImage, file) => {handleImageChange(selectedImage, file, 'picture');
+              console.log(picture);
+            console.log(userData)}} />
               <p>la photo ajouteé ci-dessus doit être professionnel</p>
             </div>
             <div className="inputs">
@@ -241,6 +306,7 @@ const Signup = () => {
           <img src="images/logo.png" alt="Logo" className="logo" />
           <div className="title">Créer un compte</div>
           </div>
+          {console.log(userData)}
           <div className="text">Vous pouvez ajouter vos documents officiels ici</div>
           <div className="pictures">
             <div className="pic">
@@ -257,7 +323,7 @@ const Signup = () => {
             <FontAwesomeIcon onClick={handlePrevious} icon={faCircleChevronLeft} size="2xl" style={{ cursor: "pointer", color: "#B69B7D",width:'50px',height:'50px' }} />
             <button className='buttonsub' onClick={handleSave}>Enregistrer</button>
           </div>
-          
+          {console.log(userData)}
         </div>
       )}
     </div>
