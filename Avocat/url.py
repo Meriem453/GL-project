@@ -20,11 +20,12 @@ path('user/addRDV',views.addRDV),
 #--------------------------------------Avocat URLs---------------------------------------------------------------
 #POST REQUESTS
 path('avocat/signUp',views.signUp),
-path('avocat/signIn',views.login),
+path('avocat/login',views.login),
 
 #GET REQUESTS
 path('avocat/currentAvocat',views.getCurrentAvocat),
-
+path('avocat/profile',views.getProfileAvocat),
+path('avocat/profile/modify',views.modify_profile),
 
 
 

@@ -8,7 +8,8 @@ STATUS_CHOICES = [
         ('inactive', 'Inactive'),
         ('pending', 'Pending'),
     ]
-
+def upload_to(instance,filename):
+    return 'images/profile/{filename}'.format(filename=filename)
 
 class Wilaya(models.Model):
     name = models.CharField(max_length=50)
@@ -23,19 +24,19 @@ class Speciality(models.Model):
 class Avocat(models.Model):
     nom = models.CharField(max_length=100)
     prenom=models.CharField(max_length=100)
-    experience = models.CharField(max_length=500)
+    experience = models.CharField(max_length=500,null=True)
     nmr_tlfn=models.CharField(max_length=10)
     adresse = models.CharField(max_length=100)
-    adresse_link = models.CharField(max_length=100)
-    competence = models.CharField(max_length=100)
-    langue = models.CharField(max_length=50)
+    adresse_link = models.CharField(max_length=100,null=True)
+    competence = models.CharField(max_length=100,null=True)
+    langue = models.CharField(max_length=50,null=True)
     nmrInscitBureau=models.CharField(max_length=50)
     email=models.CharField(max_length=50,unique=True)
     status=models.CharField(max_length=50, choices=STATUS_CHOICES,default='pending')
-    linckedIn=models.CharField(max_length=100)
-    profilePh=models.ImageField(upload_to='./images/profile')
-    cartePro=models.ImageField(upload_to='./images/cartePro')
-    carteIndent=models.ImageField(upload_to='./images/carteIndent')
+    linckedIn=models.CharField(max_length=100,null=True)
+    profilePh=models.ImageField(upload_to=upload_to,default="/images/profile/defaultprofile.jpg")
+    cartePro=models.ImageField(upload_to='./images/cartePro',default="/images/profile/defaultprofile.jpg")
+    carteIndent=models.ImageField(upload_to='./images/carteIndent',default="/images/profile/defaultprofile.jpg")
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
     specialite = models.ForeignKey(Speciality,on_delete=models.SET_NULL,null=True)
     def __str__(self):
@@ -69,4 +70,4 @@ class Admin(models.Model):
     username=models.CharField(max_length=10)
     password=models.CharField(max_length=10)
     def __str__(self):
-        return self.nom
+        return self.username
