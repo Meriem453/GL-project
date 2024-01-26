@@ -10,6 +10,12 @@ import {
 import Signup from "./components/signup/signup";
 import Commentpage from "./components/comments/comment";
 
+import Home from './componentss/home';
+import Recherche from './componentss/beforeSearch';
+import Apresrecherche from './componentss/afterSearch';
+import Proifil from './componentss/profilAvocat';
+import Avocat from './componentss/avocat';
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -39,6 +45,27 @@ function App() {
      {
       path: "/commentaires",
       element: <Commentpage/>,
+     },
+     {
+      path: "/",
+      element: <Home/>,
+     },
+     {
+      path: '/recherche',
+      element: <Recherche/>,
+     },
+     {
+      path: '/apres_recherche',
+      element: <Apresrecherche/>,
+     },
+     
+     {
+      path: '/avocat',
+      element: <Avocat/>,
+     },
+     {
+      path: '/profilavocat',
+      element: <Proifil/>,
      },
   ]);
 
