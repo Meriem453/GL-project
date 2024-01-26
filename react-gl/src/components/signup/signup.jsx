@@ -119,10 +119,7 @@ const Signup = () => {
             // Use client-side navigation to redirect
               window.location.href = response.data.redirect;
           }
-          if(response.data.error){
-            setMessage(response.data.error);
-            alert(message);
-          }
+          navigate('/waiting');
       }).catch(error => {
           console.error('Error of sending req:', error);
           });;
@@ -130,10 +127,11 @@ const Signup = () => {
         const createdUser = response.data.user;
         console.log('User created:', createdUser);
   
-        navigate('/waiting');
+       
       } catch (error) {
         console.error('Error creating user:why!!!!', error);
-      }
+        setMessage(error.response.data.message);
+        }
     } else {
       alert('Veuillez remplir tous les champs obligatoires.');
     }
@@ -148,6 +146,11 @@ const Signup = () => {
           <img src="images/logo.png" alt="Logo" className="logo" />
           <div className="title">Créer un compte</div>
           </div>
+          {message && (
+                    <div className="message">
+                        {message}
+                    </div>
+                )}
           <div className="container">
               <div className="row">
               <div className="input-group">

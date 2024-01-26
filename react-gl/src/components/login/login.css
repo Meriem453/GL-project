@@ -47,6 +47,15 @@ body{
     align-items: center;
     width: 100%;
 }
+.message {
+  width: 100%;
+  padding: 8px; 
+  color: #d93b3b;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px; 
+  border-radius: 5px; 
+}
 .login form{
     display: flex;
     flex-direction: column;

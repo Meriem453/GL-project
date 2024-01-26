@@ -1,38 +1,84 @@
-import "./login.css"
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import './login.css'
 const Login = () => {
-    return(
-        <div className="login">
-            <div className="card">
-                <img src="images/logo.png" alt="Logo" className="logo" />
-                <div className="container">
-                    <div className="title">Se Connecter</div>
-                    <form>
-                        <div className="input-group">
-                            <input
-                            type="text"
-                            placeholder=''
-                            />
-                            <label>E-mail</label>
-                        </div>
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  });
+  const [message, setMessage] = useState('')
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-                        <div className="input-group">
-                            <input
-                            type="password"
-                            placeholder=" "
-                            />
-                            <label>mot de passe </label>
-                        </div>
-                        <span>mot de passe oublié ?</span>
-                        <button>se connecter</button>
-                        <button className="google"><img src="images/google.png" alt="google" />connectez-vous avec google</button>
-                    </form>
-                    <p className="signup-link">vous n’avez pas de compte ? <Link to="/signup" className="link"> s’inscrire</Link></p>
-                    
-                </div> 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        console.log("data of user:",userData)
+      const response = await axios.post('http://localhost:8000/api/avocat/login', userData);
+      console.log(response.data);
+        if(response.data.redirect) {
+            window.location.href = response.data.redirect;
+        }
+        
+    } catch (error) {
+        console.error('Error logging in:', error);
+        console.log(error.response.data.message)
+        setMessage(error.response.data.message);
+    }
+  };
+
+  return (
+    <div className="login">
+      <div className="card">
+        <img src="images/logo.png" alt="Logo" className="logo" />
+        <div className="container">
+          <div className="title">Se Connecter</div>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <input
+                type="text"
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+                placeholder=""
+                required  // Added the 'required' attribute
+              />
+              <label>E-mail</label>
             </div>
+
+            <div className="input-group">
+              <input
+                type="password"
+                name="password"
+                value={userData.password}
+                onChange={handleChange}
+                placeholder=""
+                required  // Added the 'required' attribute
+              />
+              <label>Mot de passe</label>
+            </div>
+            {message && (
+                    <div className="message">
+                        {message}
+                    </div>
+                )}
+            <span>Mot de passe oublié ?</span>
+            <button type="submit">Se connecter</button>
+            <button className="google">
+              <img src="images/google.png" alt="Google" /> Connectez-vous avec Google
+            </button>
+          </form>
+          <p className="signup-link">
+            Vous n’avez pas de compte ? <Link to="/signup" className="link">S’inscrire</Link>
+          </p>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default Login;

@@ -29,6 +29,15 @@ body{
     padding: 20px;
     overflow:auto;
 }
+.message {
+  width: 100%;
+  padding: 8px; 
+  color: #d93b3b;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px; 
+  border-radius: 5px; 
+}
 .signup .logotitle{
     display: flex;
     width: 90%;
