@@ -89,25 +89,29 @@ def getAvocatInfo(request,avocat_id):
 
 @api_view(['POST'])
 def searchAllAvocats(request):
-   nom=request.data.get('nom')
-   prenom=request.data.get('prenom')
-   specialite=request.data.get('specialite')
-   adresse=request.data.get('adresse')
+    nom = request.data.get('nom')
+    prenom = request.data.get('prenom')
+    specialite = request.data.get('specialite')
+    adresse = request.data.get('adresse')
 
-   queryset = Avocat.objects.filter(status='active')
-   if nom is not None and nom != "":
-           queryset = queryset.filter(Q(nom=nom) | Q(prenom=prenom))
+    queryset = Avocat.objects.filter(status='active')
 
-   if specialite is not None and specialite != "":
-           specialite_id=Speciality.objects.filter(name=specialite)
-           queryset = queryset.filter(specialite=specialite_id)
+    conditions = Q()
 
-   if adresse is not None and adresse != "":
-           #wilaya_id=Wilaya.objects.filter(name=wilaya)
-           queryset = queryset.filter(adresse=adresse)
+    if nom is not None and nom != "":
+        conditions &= Q(nom=nom) | Q(prenom=prenom)
 
-   serializer=AvocatSerializer(queryset,many=True)
-   return Response(serializer.data)
+    if specialite is not None and specialite != "":
+        specialite_id = Speciality.objects.get(name=specialite)
+        conditions &= Q(specialite=specialite_id)
+
+    if adresse is not None and adresse != "":
+        conditions &= Q(adresse=adresse)
+
+    queryset = queryset.filter(conditions)
+
+    serializer = AvocatSerializer(queryset, many=True)
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
@@ -127,7 +131,7 @@ def getAllSpecialities(request):
 
 @api_view(['GET'])
 def getActiveAvocats(request):
-    all=Avocat.objects.filter(status='active')
+    all=Avocat.objects.select_related('specialite').all().filter(status='active')
     serializer=AvocatSerializer(all,many=True)
 
     return Response(serializer.data)
