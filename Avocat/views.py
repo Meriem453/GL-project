@@ -24,6 +24,7 @@ from .serializers import RateAndCommentsSerializer
 from .serializers import SignupSerializer
 from .serializers import UserSerializer
 from .serializers import RDVSerializer
+from django.db.models import Q
 
 
 
@@ -91,23 +92,19 @@ def searchAllAvocats(request):
    nom=request.data.get('nom')
    prenom=request.data.get('prenom')
    specialite=request.data.get('specialite')
-   wilaya=request.data.get('wilaya')
+   adresse=request.data.get('adresse')
 
    queryset = Avocat.objects.filter(status='active')
-
    if nom is not None and nom != "":
-           queryset = queryset.filter(nom=nom)
-
-   if prenom is not None and prenom != "":
-           queryset = queryset.filter(prenom=prenom)
+           queryset = queryset.filter(Q(nom=nom) | Q(prenom=prenom))
 
    if specialite is not None and specialite != "":
            specialite_id=Speciality.objects.filter(name=specialite)
            queryset = queryset.filter(specialite=specialite_id)
 
-   if wilaya is not None and wilaya != "":
-           wilaya_id=Wilaya.objects.filter(name=wilaya)
-           queryset = queryset.filter(wilaya=wilaya_id)
+   if adresse is not None and adresse != "":
+           #wilaya_id=Wilaya.objects.filter(name=wilaya)
+           queryset = queryset.filter(adresse=adresse)
 
    serializer=AvocatSerializer(queryset,many=True)
    return Response(serializer.data)
