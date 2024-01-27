@@ -133,7 +133,7 @@ export default function Proifil() {
                     <div className="img">
                         {/* <img src={localisation} alt="image"/> */}
                         {/* <iframe src="https://maps.app.goo.gl/CbczTKRgePU9kwsJ8" style={{  width:"600" ,height:"450" ,style:"border:0;" , loading:"lazy" , referrerpolicy:"no-referrer-when-downgrade" }}  > */}
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d409090.6435667906!2d5.006979!3d36.770072!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f2cca1a82082c5%3A0x7807b41e13330b6e!2zQsOpamHDr2E!5e0!3m2!1sfr!2sdz!4v1706088870791!5m2!1sfr!2sdz" style={{  width:"600" ,height:"450" ,style:"border:0;" , loading:"lazy" , referrerpolicy:"no-referrer-when-downgrade" }}  >
+                        <iframe src={avocat.adresse_link} style={{  width:"600" ,height:"450" ,style:"border:0;" , loading:"lazy" , referrerpolicy:"no-referrer-when-downgrade" }}  >
 
                             
                         </iframe>
