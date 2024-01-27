@@ -6,8 +6,31 @@ import click from '../images/arrow.png' ;
 import Footer from './footer';
 import '../css/recherche.css' ;
 import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function Recherche() {
+    const [nom, setNom] = useState('');
+    const [specialite, setSpecialite] = useState('');
+    const [wilaya, setWilaya] = useState('');
+    const [avocats, setAvocats] = useState([]);
+
+    const searchAvocats = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/user/search', {
+                nom: nom,
+                prenom: nom,
+                specialite: specialite,
+                wilaya: '',
+            });
+
+            setAvocats(response.data);
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error fetching avocats:', error);
+        }
+    };
+
     return (
         <div className="search">
             <Navbar/>
@@ -22,13 +45,16 @@ export default function Recherche() {
             </div>
             <div className="search_form">
                 <div className="specialite">
-                <input  name="name" type="text" placeholder="specialite"/>
+                <input  name="name" type="text" placeholder="specialite" value={specialite}
+                        onChange={(e) => setSpecialite(e.target.value)}/>
                 
                 </div>
             
-                <input  name="name" type="text" placeholder="Nom/Prenom"/>
-                <input  name="adress" type="text" placeholder="adresse"/>
-                <NavLink to='/apres_recherche'><button>  recherche  </button> </NavLink>
+                <input  name="name" type="text" placeholder="Nom/Prenom" value={nom}
+                        onChange={(e) => setNom(e.target.value)}/>
+                <input  name="adress" type="text" placeholder="Adresse" value={wilaya}
+                        onChange={(e) => setWilaya(e.target.value)}/>
+                <NavLink to='/apres_recherche'><button onClick={searchAvocats}>  recherche  </button> </NavLink>
             </div>
 
             <div className="attendre">
