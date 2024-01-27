@@ -84,6 +84,33 @@ export default function Proifil() {
 
     const [schedule, setSchedule] = useState(Array.from({ length: days.length }, () => Array(periods.length).fill(false)));
 
+    useEffect(() => {
+        const GetPlanification = async () => {
+            try {
+
+                const response = await axios.get(`http://127.0.0.1:8000/api/user/planOfAvocat/${id}`);
+                const data = response.data;
+
+                // Process the data to create the schedule
+                const newSchedule = data.map(item => {
+                    // Extract the session properties
+                    const { session1, session2, session3, session4, session5, session6, session7 } = item;
+
+                    // Create an array representing the schedule for each day
+                    return [session1, session2, session3, session4, session5, session6, session7];
+                });
+
+                // Set the schedule state
+                setSchedule(newSchedule);
+                console.log('Response:', response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        GetPlanification();
+    }, []);
+
     const toggleAvailability = (dayIndex, periodIndex) => {
         const newSchedule = [...schedule];
         newSchedule[dayIndex][periodIndex] = !newSchedule[dayIndex][periodIndex];
