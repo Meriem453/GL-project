@@ -61,7 +61,7 @@ export default function Navbar() {
                 }}  to='/'> home </NavLink> </li>
           <li><NavLink style={({isActive})=>{
                 return isActive ? {  border: "1px solid var(--main-color2)", padding: "5px 10px",  borderRadius: "5px"} : {}
-                }} to='/recherche'> Recherche</NavLink></li>
+                }} to='/apres_recherche'> Recherche</NavLink></li>
           
           {/* <li><NavLink style={({isActive})=>{
                 return isActive ? {  border: "1px solid var(--main-color2)", padding: "5px 10px",  borderRadius: "5px"} : {}
