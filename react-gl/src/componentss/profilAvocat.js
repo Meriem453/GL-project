@@ -275,7 +275,7 @@ export default function Proifil() {
                                 {periods.map((period, periodIndex) => (
                                     <td key={periodIndex}>
                                     {schedule[dayIndex][periodIndex] ? (
-                                        <img src={etoile} alt="Available" />
+                                        <img src={coche} alt="Available" />
                                     ) : (
                                        ''
                                     )}
@@ -308,8 +308,6 @@ export default function Proifil() {
                         <p> {item.commentBody}</p>
                     </div>
                 ))}
-
-
             </div>
             <Footer/>
         </div>

@@ -342,7 +342,7 @@
     display: flex;
     flex-direction: column;
     align-content: stretch;
-    justify-content: space-between;
+   
     align-items: center;
     margin-left: 50px;
     margin-top: 50px;
@@ -436,7 +436,7 @@
 
 .profil .formulaire input[name="situation"]{
     height: 80px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .profil .formulaire input:focus {
@@ -447,6 +447,22 @@
     color: var(--main-color2);
     text-align: center;
     margin-bottom: 20px 
+}
+
+.profil .formulaire button{
+
+    width: 145px;
+    background-color: var(--main-color2);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-top: 20px;
+    text-transform: capitalize;
+    cursor: pointer;
+    margin-bottom: 15px;
+
 }
 
 

@@ -120,6 +120,10 @@
     border-radius: 5px;
  } */
 
+ .navbar .right a{
+    text-decoration: none;
+ }
+
  .navbar .right button {
     display: flex ;
     background-color: var(--main-color2);
@@ -207,12 +211,18 @@
     }
     .navbar .middle li {
         margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .navbar .right button {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .categorie h1 {
+        text-align: center;
     }
 
 }
@@ -539,10 +549,20 @@
     margin-bottom: 30px;
 }
 
+.categorie .card .img img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .categorie .card h2 {
     color: var(--main-color2);
     font-size: 30px;
-}
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    text-align: center;
+}  
 
 .categorie .card p {
     text-align: center;
@@ -563,6 +583,10 @@
     margin-top: 35px;
     text-transform: capitalize;
     cursor: pointer;
+    /* text-align: center; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact {

@@ -71,8 +71,9 @@ export default function Navbar() {
                 return isActive ? {  border: "1px solid var(--main-color2)", padding: "5px 10px",  borderRadius: "5px"} : {}
                 }} to="/avocat"> Avocat</NavLink> </li>
         </ul>
+
         <div className='right'>
-          <button ref={ele1ref}> log in</button>
+         <NavLink to='/login'> <button ref={ele1ref}> log in</button> </NavLink>
         </div>
         
         </div>

@@ -68,10 +68,13 @@ function App() {
       path: '/profilavocat/:id',
       element: <Proifil/>,
      },
+
      {
       path: '/secure-admin-path-here',
       element: <Admin/>,
      },
+
+    
 
   ]);
 
