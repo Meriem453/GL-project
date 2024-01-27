@@ -11,11 +11,30 @@ import etoile_plein from '../images/etoile (1).png';
 import multi from '../images/signe-de-multiplication (1).png';
 import '../css/profil.css';
 import Footer from './footer';
-import { useState , useRef} from "react";
+import {useState, useRef, useEffect} from "react";
 import coche from '../images/coche.png'
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 
 export default function Proifil() {
+    const { id } = useParams();
+    const [avocat, setAvocat] = useState('');
+
+    useEffect(() => {
+        const GetAvocat = async () => {
+            try {
+
+                const response = await axios.get(`http://127.0.0.1:8000/api/user/avocatInfo/${id}`);
+                setAvocat(response.data);
+                console.log('Response:', response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        GetAvocat();
+    }, []);
 
     const ele1ref = useRef(null);
     const ele2ref = useRef(null);
@@ -88,24 +107,24 @@ export default function Proifil() {
                 <div className="left">
                     <div className="profil_carte">
                         <div className='img'>
-                            <img src={image_carte} alt="image"/>
+                            <img src={`http://127.0.0.1:8000${avocat.profilePh}`} alt="image"/>
                         </div>
-                        <h3> bouhafs imane</h3>
+                        <h3> {avocat.nom} {avocat.prenom} </h3>
                         <div>
                             <img src={localisation_icons} alt="image"/>
-                            <p> 10 rue Enfantin, 16000 Alger </p>
+                            <p>  {avocat.adresse} </p>
                         </div>
                         <div>
                             <img src={tlfn} alt="image"/>
-                            <p> 0662695753 </p>
+                            <p> {avocat.nmr_tlfn} </p>
                         </div>
                         <div>
                             <img src={mail} alt="image"/>
-                            <p> i_bouhafs@estin.dz </p>
+                            <p> {avocat.email} </p>
                         </div>
                         <div>
                             <img src={linkedin} alt="image"/>
-                            <p> i_bouhafs@estin.dz </p>
+                            <p> {avocat.linckedIn} </p>
                         </div>
                         <button onClick={hidden}> prendre RDV</button>
                     </div>
@@ -122,18 +141,17 @@ export default function Proifil() {
                     <div className="information">
                         <div> 
                             <h3> Competence :</h3>
-                            <p> familly law</p>
+                            <p> {avocat.speciality}</p>
                         </div>
                         <div> 
                             <h3> langue :</h3>
-                            <p> Francais - anglais - arabe</p>
+                            <p> {avocat.langue}</p>
                         </div>
                         <div className="experience1" > 
                             <h3> Experience :</h3>
                             
-                            <p> vous pouvez facilement trouvez l’avocat que</p>
-                            <p> vous pouvez facilement trouvez l’avocat que</p>
-                            <p> vous pouvez facilement trouvez l’avocat que</p>
+                            <p> {avocat.experience}</p>
+
                             
                         </div>
 

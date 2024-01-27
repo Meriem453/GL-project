@@ -65,7 +65,7 @@ function App() {
       element: <Avocat/>,
      },
      {
-      path: '/profilavocat',
+      path: '/profilavocat/:id',
       element: <Proifil/>,
      },
      {

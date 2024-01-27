@@ -45,7 +45,7 @@ export default function Avocat() {
             <div className="card">
                 {listAvocat.map((avocat, index) => (
                     <div className="carte">
-                        <NavLink className="liiiink" to="/profilavocat">
+                        <NavLink className="liiiink" to={`/profilavocat/${avocat.id}`}>
                             <div className="img"> <img src={`http://127.0.0.1:8000${avocat.profilePh}`} alt="image"/></div>
                             <div className="rating"> <img src={start} alt="imagee"/> <p>4.0</p></div>
                             <h3> {avocat.nom} {avocat.prenom} </h3>
