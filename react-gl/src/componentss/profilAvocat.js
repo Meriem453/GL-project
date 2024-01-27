@@ -11,10 +11,11 @@ import etoile_plein from '../images/etoile (1).png';
 import multi from '../images/signe-de-multiplication (1).png';
 import '../css/profil.css';
 import Footer from './footer';
-import {useState, useRef, useEffect} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import coche from '../images/coche.png'
-import { useParams } from 'react-router-dom';
+import {NavLink, useParams} from 'react-router-dom';
 import axios from "axios";
+import start from "../images/star (1).png";
 
 
 export default function Proifil() {
@@ -79,6 +80,7 @@ export default function Proifil() {
 
 
 
+
     const days = ['Samedi', 'Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
     const periods = ['8:00-9:00', '9:00-10:00', '10:00-11:00' ,'13:00-14:00','14:00-15:00', '15:00-16:00'];
 
@@ -111,6 +113,41 @@ export default function Proifil() {
         GetPlanification();
     }, []);
 
+    const [commnents, setComments] = useState([]);
+    const GetAllComments = async () => {
+        try {
+
+            const response = await axios.get(`http://127.0.0.1:8000/api/user/allComments/${id}`);
+            const data = response.data;
+            setComments(data)
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    useEffect(() => {
+        GetAllComments();
+    }, []);
+    const [comment, setComment] = useState('');
+
+    const addComment = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/user/addComment', {
+                rate: state.x,
+                commentBody: comment,
+                avocat: id,
+            });
+            setComment('')
+            setState( (prevState)=>({ x:0 , star1: etoile , star2: etoile, star3: etoile, star4: etoile, star5: etoile}))
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error fetching avocats:', error);
+        }
+        await GetAllComments();
+    };
     const toggleAvailability = (dayIndex, periodIndex) => {
         const newSchedule = [...schedule];
         newSchedule[dayIndex][periodIndex] = !newSchedule[dayIndex][periodIndex];
@@ -119,7 +156,27 @@ export default function Proifil() {
         const isAvailable = newSchedule[dayIndex][periodIndex];
         console.log(`Day: ${days[dayIndex]}, Period: ${periods[periodIndex]}, Available: ${isAvailable}`);
     };
+    const [RDVnom, setRDVnom] = useState('');
+    const [RDVdate, setRDVdate] = useState('');
+    const [RDVemail, setRDVemail] = useState('');
+    const [RDVsituation, setRDVsituation] = useState('');
 
+    const addRDV = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/user/addRDV', {
+                nom: RDVnom,
+                date:RDVdate,
+                email: RDVemail,
+                situation: RDVsituation,
+                avocat: id,
+            });
+
+
+            console.log('Response:', response.data);
+        } catch (error) {
+            console.error('Error fetching avocats:', error);
+        }
+    };
 
 
 
@@ -190,14 +247,14 @@ export default function Proifil() {
                 <div className="img" onClick={modifier}> <img src={multi}/></div>
                 <h1> prendre rendez-vous</h1>
                 <label for="name"> nom complet</label>
-                <input type="text" id="name" name="name" required/>
-                <label for="name"> date</label>
-                <input type="date" id="date" name="date" required/>
+                <input type="text" id="name" name="name" required value={RDVnom} onChange={(e) => setRDVnom(e.target.value)}/>
                 <label for="date"> date</label>
-                <input type="email" id="email" name="email" required/>
+                <input type="date" id="date" name="date" required value={RDVdate}  onChange={(e) => setRDVdate(e.target.value)}/>
+                <label for="email"> email</label>
+                <input type="email" id="email" name="email" required value={RDVemail} onChange={(e) => setRDVemail(e.target.value)}/>
                 <label for="situation"> situation</label>
-                <input type="text" id="situation" name="situation" required/>
-
+                <input type="text" id="situation" name="situation" required value={RDVsituation} onChange={(e) => setRDVsituation(e.target.value)}/>
+                <button onClick={addRDV}> prendre RDV</button>
             </div>
 
             <div className="dispo">
@@ -237,32 +294,22 @@ export default function Proifil() {
                         <div>
                              <img src={star1} onClick={change1}/> <img src={star2} onClick={change2}/> <img src={star3} onClick={change3}/> <img src={star4} onClick={change4}/> <img src={star5} onClick={change5}/>
                         </div>
-                        <input type="text" name="avis" placeholder="Ajoutez votre avis  sur cet avocat ......."/>
-                        <button> ajouter</button>
+                        <input type="text" name="avis" placeholder="Ajoutez votre avis  sur cet avocat ......." value={comment}
+                               onChange={(e) => setComment(e.target.value)}
+                        />
+                        <button onClick={addComment}> ajouter</button>
                     </div>
             </div>
 
             <div className="commentaires">
-                <div className="comment">
-                    <div> <img src={etoile_plein}/> <p> 5.0</p></div>
-                    <p> jxhskjdchsudcreation timeless for the standard best service passage vary, with some citing the 15 centurycreation timeless for the standard</p>
-                </div>
-                <div className="comment">
-                    <div> <img src={etoile_plein}/> <p> 5.0</p></div>
-                    <p> jxhskjdchsudcreation timeless for the standard best service passage vary, with some citing the 15 centurycreation timeless for the standard</p>
-                </div>
-                <div className="comment">
-                    <div> <img src={etoile_plein}/> <p> 5.0</p></div>
-                    <p> jxhskjdchsudcreation timeless for the standard best service passage vary, with some citing the 15 centurycreation timeless for the standard</p>
-                </div>
-                <div className="comment">
-                    <div> <img src={etoile_plein}/> <p> 5.0</p></div>
-                    <p> jxhskjdchsudcreation timeless for the standard best service passage vary, with some citing the 15 centurycreation timeless for the standard</p>
-                </div>
-                <div className="comment">
-                    <div> <img src={etoile_plein}/> <p> 5.0</p></div>
-                    <p> jxhskjdchsudcreation timeless for the standard best service passage vary, with some citing the 15 centurycreation timeless for the standard</p>
-                </div>
+                {commnents.map((item, index) => (
+                    <div className="comment">
+                        <div> <img src={etoile_plein}/> <p> {item.rate}</p></div>
+                        <p> {item.commentBody}</p>
+                    </div>
+                ))}
+
+
             </div>
             <Footer/>
         </div>
