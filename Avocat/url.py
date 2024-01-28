@@ -28,6 +28,12 @@ path('avocat/profile',views.getProfileAvocat),
 path('avocat/profile/modify',views.modify_profile),
 
 
+#---------------------------------------------Admin URLs-----------------------------------------------------------
+
+path('admin/updatestatus',views.updateAvocatStatus),
+path('admin/getPending',views.getPendingAvocats),
+path('admin/delete',views.deleteAvocat),
+
 
 
 

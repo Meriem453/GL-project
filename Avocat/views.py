@@ -1,4 +1,4 @@
-from rest_framework.decorators import api_view, authentication_classes, permission_classes,parser_classes
+from rest_framework.decorators import api_view, authentication_classes, permission_classes, parser_classes
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -7,7 +7,9 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-#models
+# models
+from rest_framework.views import APIView
+
 from .models import Avocat
 from .models import Wilaya
 from .models import Speciality
@@ -15,7 +17,7 @@ from .models import RateAndComments
 from .models import Day
 from .models import Admin
 from .models import RDV
-#serializers
+# serializers
 from .serializers import AvocatSerializer
 from .serializers import DaySerializer
 from .serializers import WilayaSerializer
@@ -27,17 +29,17 @@ from .serializers import RDVSerializer
 from django.db.models import Q
 
 
-
 # Create your views here.
-#avocat views 
+# avocat views
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])  # Use TokenAuthentication for authentication
 @permission_classes([IsAuthenticated])
 def getProfileAvocat(request):
-    avovat=Avocat.objects.get(user = request.user)
-    serializer=AvocatSerializer(avovat)
-    print("avocat loged is :",serializer.data)
+    avovat = Avocat.objects.get(user=request.user)
+    serializer = AvocatSerializer(avovat)
+    print("avocat loged is :", serializer.data)
     return Response(serializer.data)
+
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -45,10 +47,11 @@ from rest_framework import status
 from .models import Avocat
 from .serializers import AvocatSerializer
 
+
 @api_view(['PUT'])
 def modify_profile(request):
     if request.method == 'PUT':
-        avocat_instance = Avocat.objects.first()  
+        avocat_instance = Avocat.objects.first()
         serializer = AvocatSerializer(avocat_instance, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -57,32 +60,35 @@ def modify_profile(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-#user views
+# user views
 @api_view(['GET'])
 def getAllAvocats(request):
-    all=Avocat.objects.all()
-    serializer=AvocatSerializer(all,many=True)
+    all = Avocat.objects.all()
+    serializer = AvocatSerializer(all, many=True)
 
     return Response(serializer.data)
 
+
 @api_view(['GET'])
-def getPlanOfAvocat(request,avocat_id):
-    all=Day.objects.filter(avocat=avocat_id)
-    serializer=DaySerializer(all,many=True)
+def getPlanOfAvocat(request, avocat_id):
+    all = Day.objects.filter(avocat=avocat_id)
+    serializer = DaySerializer(all, many=True)
 
     return Response(serializer.data)
 
+
 @api_view(['GET'])
-def getCommentsOfAvocat(request,avocat_id):
-    all=RateAndComments.objects.filter(avocat=avocat_id)
-    serializer=RateAndCommentsSerializer(all,many=True)
+def getCommentsOfAvocat(request, avocat_id):
+    all = RateAndComments.objects.filter(avocat=avocat_id)
+    serializer = RateAndCommentsSerializer(all, many=True)
 
     return Response(serializer.data)
 
+
 @api_view(['GET'])
-def getAvocatInfo(request,avocat_id):
-    all=Avocat.objects.get(id=avocat_id)
-    serializer=AvocatSerializer(all)
+def getAvocatInfo(request, avocat_id):
+    all = Avocat.objects.get(id=avocat_id)
+    serializer = AvocatSerializer(all)
 
     return Response(serializer.data)
 
@@ -116,23 +122,24 @@ def searchAllAvocats(request):
 
 @api_view(['GET'])
 def getAllWilayas(request):
-    all=Wilaya.objects.all()
-    serializer=WilayaSerializer(all,many=True)
+    all = Wilaya.objects.all()
+    serializer = WilayaSerializer(all, many=True)
 
     return Response(serializer.data)
 
+
 @api_view(['GET'])
 def getAllSpecialities(request):
-    all=Speciality.objects.all()
-    serializer=SpecialitySerializer(all,many=True)
+    all = Speciality.objects.all()
+    serializer = SpecialitySerializer(all, many=True)
 
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getActiveAvocats(request):
-    all=Avocat.objects.select_related('specialite').all().filter(status='active')
-    serializer=AvocatSerializer(all,many=True)
+    all = Avocat.objects.select_related('specialite').all().filter(status='active')
+    serializer = AvocatSerializer(all, many=True)
 
     return Response(serializer.data)
 
@@ -141,21 +148,21 @@ def getActiveAvocats(request):
 def addComment(request):
     serializer = RateAndCommentsSerializer(data=request.data)
     if serializer.is_valid():
-                serializer.save()
-                return Response({'comment inserted successfully'})
-
+        serializer.save()
+        return Response({'comment inserted successfully'})
 
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 def addRDV(request):
     serializer = RDVSerializer(data=request.data)
     if serializer.is_valid():
-                serializer.save()
-                return Response({'RDV inserted successfully'})
-
+        serializer.save()
+        return Response({'RDV inserted successfully'})
 
     return Response(serializer.data)
+
 
 # @api_view(['POST'])
 # def signUp(request):
@@ -181,7 +188,7 @@ def addRDV(request):
 #         return Response({'error'})
 
 @api_view(['POST'])
-#@parser_classes([MultiPartParser, FormParser])
+# @parser_classes([MultiPartParser, FormParser])
 def signUp(request):
     if request.method == 'POST':
         try:
@@ -233,44 +240,61 @@ def login(request):
     print("in the login view")
     email = request.data['email']
     password = request.data['password']
-    print(email,password)
+    print(email, password)
     try:
         user = User.objects.get(email=email)
-        print("user : ",user)
+        print("user : ", user)
         if user.check_password(password):
-            avocat=Avocat.objects.get(email=request.data['email'])
-            print("avocat od the user : ",avocat)
-            token, created  = Token.objects.get_or_create(user=user)
+            avocat = Avocat.objects.get(email=request.data['email'])
+            print("avocat od the user : ", avocat)
+            token, created = Token.objects.get_or_create(user=user)
             serializer = AvocatSerializer(avocat)
-            return Response({'token': token.key,'redirect':"/profile" ,'user': serializer.data})
+            return Response({'token': token.key, 'redirect': "/profile", 'user': serializer.data})
         else:
-            return Response({'message':'password incorrect'},status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': 'password incorrect'}, status=status.HTTP_400_BAD_REQUEST)
     except User.DoesNotExist:
-            return Response({'message':'Email and password combinition incorrect'},status=status.HTTP_400_BAD_REQUEST)
-    
+        return Response({'message': 'Email and password combinition incorrect'}, status=status.HTTP_400_BAD_REQUEST)
 
-#mahich temchi :')
+
+# mahich temchi :')
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
 def getCurrentAvocat(request):
-
     current_user = request.user
-    user=UserSerializer(data=current_user)
-    return Response({'user':user.data})
+    user = UserSerializer(data=current_user)
+    return Response({'user': user.data})
 
 
+@api_view(['GET'])
+def getPendingAvocats(request):
+    all = Avocat.objects.filter(status='pending')
+    serializer = AvocatSerializer(all, many=True)
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def updateAvocatStatus(request):
+    try:
+        avocat_id = request.data.get('id')
+        avocat = Avocat.objects.get(id=avocat_id)
+    except Avocat.DoesNotExist:
+        return Response({"error": "Avocat not found"}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = AvocatSerializer(avocat, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['POST'])
+def deleteAvocat(request):
+    try:
+        avocat_id = request.data.get('id')  # Assuming you are sending the id in the request body
+        avocat = Avocat.objects.get(id=avocat_id)
+    except Avocat.DoesNotExist:
+        return Response({"error": "Avocat not found"}, status=status.HTTP_404_NOT_FOUND)
 
-
-
-
-
-
-
-
-
-
-
-
+    avocat.delete()
+    return Response({"message": "Avocat deleted successfully"}, status=status.HTTP_204_NO_CONTENT)

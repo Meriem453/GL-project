@@ -27,7 +27,7 @@ class Avocat(models.Model):
     experience = models.CharField(max_length=500,null=True)
     nmr_tlfn=models.CharField(max_length=10)
     adresse = models.CharField(max_length=100)
-    adresse_link = models.CharField(max_length=100,null=True)
+    adresse_link = models.CharField(max_length=500,null=True)
     competence = models.CharField(max_length=100,null=True)
     langue = models.CharField(max_length=50,null=True)
     nmrInscitBureau=models.CharField(max_length=50)
@@ -44,13 +44,13 @@ class Avocat(models.Model):
 
 class Day(models.Model):
     number = models.IntegerField()
-    session1=models.BooleanField()
-    session2=models.BooleanField()
-    session3=models.BooleanField()
-    session4=models.BooleanField()
-    session5=models.BooleanField()
-    session6=models.BooleanField()
-    session7=models.BooleanField()
+    session1=models.BooleanField(default=True)
+    session2=models.BooleanField(default=True)
+    session3=models.BooleanField(default=True)
+    session4=models.BooleanField(default=True)
+    session5=models.BooleanField(default=True)
+    session6=models.BooleanField(default=True)
+    session7=models.BooleanField(default=True)
     avocat = models.ForeignKey(Avocat,on_delete=models.CASCADE)
 
 
@@ -61,7 +61,7 @@ class RateAndComments(models.Model):
 
 class RDV(models.Model):
     nom = models.CharField(max_length=50)
-    prenom = models.CharField(max_length=50)
+    date = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     situation = models.CharField(max_length=50)
     avocat = models.ForeignKey(Avocat, on_delete=models.CASCADE)
