@@ -90,12 +90,138 @@ export default function Home() {
             </div>
             <h1> Our Practice Areas</h1>
             <div className='cards'>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+            <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit civile</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit penal</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit du travil</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit famille</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit adminnistratif</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit commecial</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit des affaires</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> droit de l'environement</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+
+
+
             </div>
         </div>
 
