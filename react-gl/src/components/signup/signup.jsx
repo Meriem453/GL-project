@@ -90,7 +90,7 @@ const Signup = () => {
         formData.append('nmr_tlfn', userData.NTelephone);
         formData.append('nmrInscitBureau', userData.NBarreau);
         formData.append('adresse', userData.Address);
-        formData.append('specialite_id', userData.Spécialité);
+        formData.append('specialite', userData.Spécialité);
         formData.append('email', userData.Email);
         console.log("formdata",formData,"userdata " ,userData,"pictures",picture,carteNationale,carteProfessionnelle)
         formData.append('password', userData.password);
@@ -124,13 +124,13 @@ const Signup = () => {
           console.error('Error of sending req:', error);
           });;
   
-        const createdUser = response.data.user;
-        console.log('User created:', createdUser);
+        //const createdUser = response.data.user;
+        //console.log('User created:', createdUser);
   
        
       } catch (error) {
         console.error('Error creating user:why!!!!', error);
-        setMessage(error.response.data.message);
+        //setMessage(error.response.data.message);
         }
     } else {
       alert('Veuillez remplir tous les champs obligatoires.');
