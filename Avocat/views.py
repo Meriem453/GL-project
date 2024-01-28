@@ -138,7 +138,7 @@ def getAllSpecialities(request):
 
 @api_view(['GET'])
 def getActiveAvocats(request):
-    all = Avocat.objects.select_related('specialite').all().filter(status='active')
+    all = Avocat.objects.all().filter(status='active')
     serializer = AvocatSerializer(all, many=True)
 
     return Response(serializer.data)
@@ -203,6 +203,7 @@ def signUp(request):
                 'profilePh': request.data['picture'],
                 'carteIndent': request.data['carteNationale'],
                 'cartePro': request.data['carteProfessionnelle'],
+                'specialite': request.data['specialite']
             }
             avocat_serializer = AvocatSerializer(data=newUser)
             if avocat_serializer.is_valid():
@@ -272,6 +273,7 @@ def getPendingAvocats(request):
     serializer = AvocatSerializer(all, many=True)
 
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 def updateAvocatStatus(request):

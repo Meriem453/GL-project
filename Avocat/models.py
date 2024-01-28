@@ -34,13 +34,12 @@ class Avocat(models.Model):
     email=models.CharField(max_length=50,unique=True)
     status=models.CharField(max_length=50, choices=STATUS_CHOICES,default='pending')
     linckedIn=models.CharField(max_length=100,null=True)
-    profilePh=models.ImageField(upload_to=upload_to,default="/images/profile/defaultprofile.jpg")
-    cartePro=models.ImageField(upload_to='./images/cartePro',default="/images/profile/defaultprofile.jpg")
-    carteIndent=models.ImageField(upload_to='./images/carteIndent',default="/images/profile/defaultprofile.jpg")
+    profilePh=models.ImageField(upload_to='./images/profile')
+    cartePro=models.ImageField(upload_to='./images/cartePro')
+    carteIndent=models.ImageField(upload_to='./images/carteIndent')
     wilaya = models.ForeignKey(Wilaya,on_delete=models.SET_NULL,null=True)
-    specialite = models.ForeignKey(Speciality,on_delete=models.SET_NULL,null=True)
-    def __str__(self):
-        return self.nom
+    specialite = models.CharField(max_length=100,null=True)
+
 
 class Day(models.Model):
     number = models.IntegerField()

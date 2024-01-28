@@ -13,13 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
             fields=['email', 'password','username']
 
 class AvocatSerializer(serializers.ModelSerializer):
-      speciality = serializers.SerializerMethodField()
       class Meta:
             model=Avocat
             fields='__all__'
 
-      def get_speciality(self, obj):
-            return obj.specialite.name
 
 class SignupSerializer(serializers.ModelSerializer):
       class Meta:
