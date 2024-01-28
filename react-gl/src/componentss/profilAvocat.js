@@ -176,6 +176,7 @@ export default function Proifil() {
         } catch (error) {
             console.error('Error fetching avocats:', error);
         }
+        modifier()
     };
 
 

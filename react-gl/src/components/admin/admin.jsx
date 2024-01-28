@@ -154,14 +154,14 @@ const Admin = () => {
                     style={{ color: selectedTab === 'attente'  ? '#FFF' : '#B69B7D' }}
                     onClick={() => presstab('attente')}
                 >
-                    En Attente (5)
+                    En Attente
                 </button>
                 <button
                     className="title"
                     style={{ color: selectedTab === 'accepte' ? '#FFF' : '#B69B7D' }}
                     onClick={() => presstab('accepte')}
                 >
-                    Accepté (30)
+                    Accepté  
                 </button>
             </div>
             <div className="container">
