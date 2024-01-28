@@ -496,6 +496,7 @@
     position: relative;
     text-transform: capitalize;
      color: #B69B7D;
+     text-align: center;
 }
 
 
@@ -528,7 +529,7 @@
     display: flex;
     flex-direction: column;
     width: 265px;
-    height: 330px;
+    height: fit-content;
     background-color: var(--main-color1);
     padding: 20px;
     border-radius: 5px;
@@ -557,12 +558,13 @@
 
 .categorie .card h2 {
     color: var(--main-color2);
-    font-size: 30px;
+    font-size: 24px;
     display: block;
+    text-transform: capitalize;
     /* margin-left: auto; */
     /* margin-right: auto; */
     text-align: center;
-}  
+} 
 
 .categorie .card p {
     text-align: center;

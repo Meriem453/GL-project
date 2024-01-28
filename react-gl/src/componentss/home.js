@@ -11,6 +11,7 @@ import Card from './categoriecard';
 import Navbar from './navbar';
 import '../css/home.css'
 import Footer from './footer';
+import { NavLink } from 'react-router-dom';
 
 
 export default function Home() {
@@ -209,7 +210,7 @@ export default function Home() {
                 <img src={img_card} alt='image'/>
             </div>
             <div className='text'>
-                <h2> droit de l'environement</h2>
+                <h2> droit d'environement</h2>
                 <p> creation timeless for the
                     standard best service passage 
                     vary, with some citing the 15 century
