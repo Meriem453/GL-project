@@ -129,6 +129,38 @@ export default function Home() {
                 <img src={img_card} alt='image'/>
             </div>
             <div className='text'>
+                <h2>Droit de l'Immigration</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
+                <h2> Droit de la Propriété Intellectuelle</h2>
+                <p> creation timeless for the
+                    standard best service passage 
+                    vary, with some citing the 15 century
+                </p>
+                <button> apprendre plus </button>
+            </div>
+            </NavLink>
+        </div>
+
+        <div className='card'>
+            <NavLink to='/avocat'>
+            <div className='img'>
+                <img src={img_card} alt='image'/>
+            </div>
+            <div className='text'>
                 <h2> droit du travil</h2>
                 <p> creation timeless for the
                     standard best service passage 

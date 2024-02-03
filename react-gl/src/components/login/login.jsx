@@ -66,11 +66,8 @@ const Login = () => {
                         {message}
                     </div>
                 )}
-            <span>Mot de passe oublié ?</span>
             <button type="submit">Se connecter</button>
-            <button className="google">
-              <img src="images/google.png" alt="Google" /> Connectez-vous avec Google
-            </button>
+            
           </form>
           <p className="signup-link">
             Vous n’avez pas de compte ? <Link to="/signup" className="link">S’inscrire</Link>

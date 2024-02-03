@@ -104,33 +104,19 @@ const Signup = () => {
           formData.append('carteProfessionnelle',carteProfessionnelle)
         }
       
-      try {
-        //console.log('Request Payload:', JSON.stringify(formData));
-        console.log('FormData:', formData.values());
-
-        const response = await axios.post('http://localhost:8000/api/avocat/signUp', formData,
-        //  {
-        // headers: {
-        //     'Content-Type': 'multipart/form-data',
-        // },}
-).then(response => {
-          console.log(response)
-          if (response.redirect) {
-            // Use client-side navigation to redirect
-              window.location.href = response.data.redirect;
+        try {
+          const response = await axios.post('http://localhost:8000/api/avocat/signUp', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          });
+          console.log(response);
+          if (response.data.redirect) {
+            navigate(response.data.redirect);
           }
           navigate('/waiting');
-      }).catch(error => {
+        } catch (error) {
           console.error('Error of sending req:', error);
-          });;
-  
-        //const createdUser = response.data.user;
-        //console.log('User created:', createdUser);
-  
-       
-      } catch (error) {
-        console.error('Error creating user:why!!!!', error);
-        //setMessage(error.response.data.message);
         }
     } else {
       alert('Veuillez remplir tous les champs obligatoires.');
