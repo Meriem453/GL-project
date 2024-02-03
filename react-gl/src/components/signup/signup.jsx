@@ -105,8 +105,8 @@ const Signup = () => {
         }
       
       try {
-        console.log('Request Payload:', JSON.stringify(formData));
-        console.log('FormData:', formData);
+        //console.log('Request Payload:', JSON.stringify(formData));
+        console.log('FormData:', formData.values());
 
         const response = await axios.post('http://localhost:8000/api/avocat/signUp', formData,
         //  {
