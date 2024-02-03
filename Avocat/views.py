@@ -283,7 +283,7 @@ def updateAvocatStatus(request):
     except Avocat.DoesNotExist:
         return Response({"error": "Avocat not found"}, status=status.HTTP_404_NOT_FOUND)
 
-    serializer = AvocatSerializer(avocat, data=request.data, partial=True)
+    serializer = AvocatSerializer(avocat, data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)

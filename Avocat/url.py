@@ -12,6 +12,8 @@ path('user/avocatInfo/<int:avocat_id>',views.getAvocatInfo),
 path('user/allWilayas',views.getAllWilayas),
 path('user/allSpec',views.getAllSpecialities),
 path('user/planOfAvocat/<int:avocat_id>',views.getPlanOfAvocat),
+path('user/all',views.getAllAvocats),
+
 #POST REQUESTS
 path('user/search',views.searchAllAvocats),
 path('user/addComment',views.addComment),
