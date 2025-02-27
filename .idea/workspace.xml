@@ -6,110 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a90ce6a-26f3-4815-989f-76fc8b058aa3" name="Changes" comment="first linking try failed :(">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/Checklist.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/Google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/Group 89.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/Group 99.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/Profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/picture (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/images/profilepic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/logo.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/admin/admin.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/admin/admin.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/admin/image.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/comments/comment.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/comments/comment.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/compteavocat/profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/compteavocat/profile.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/compteavocat/sidebar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/compteavocat/sidebar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/login/login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/login/login.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/planification/planification.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/planification/planification.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/rendezvous/message.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/rendezvous/message.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/rendezvous/rendezvous.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/rendezvous/rendezvous.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/signup/carteprof.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/signup/profilepic.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/signup/signup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/signup/signup.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/waiting/waiting.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/components/waiting/waiting.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/afterSearch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/avocat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/beforeSearch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/carteAvocat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/categoriecard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/navbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/componentss/profilAvocat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/css/home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/css/profil.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/css/recherche.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/30618876-portrait-d-un-bel-homme-latin-avec-une-expression-sérieuse.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/405996185_334325649319982_180845904694674017_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/406484797_3692107147675905_8245703339747401412_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/Google-Maps-Traffic-Source.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/Group 50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/IMG_20231209_150251-removebg-preview 1 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/LOGO-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/LOGO1-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/STAR-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/STAR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/Vector (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/Vector.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/aboutus.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/coche.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/comme.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/e-mail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/etoile (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/etoile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/facebook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/gmail.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/home_img.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/linkedin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/localisation.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/logo-twitter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/logoo-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/multiplie-par (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/multiplie-par.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/picfooter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/png-clipart-tlogoooo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/png-clipart-troshchiy-law-firm-personal-injury-lawyer-crime-others-emblem-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/profil-de-lutilisateur (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/profil-de-lutilisateur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/search question.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/signe-de-multiplication (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/signe-de-multiplication.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/star (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/symbole-youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/telephone.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/téléchargement (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/téléchargement (2).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/téléchargement.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/variante-despace-reserve-noire (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/images/variante-despace-reserve-noire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react-gl/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/react-gl/src/componentss/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/react-gl/src/componentss/home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1706131801820</updated>
-      <workItem from="1740668000129" duration="2958000" />
+      <workItem from="1740668000129" duration="4406000" />
     </task>
     <task id="LOCAL-00001" summary="remove allauth">
       <created>1706133699231</created>
